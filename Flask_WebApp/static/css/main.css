@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #ce1f36;
+  }
+  
+  /*
+   * Formatting the header area
+   */
+  
+  header {
+    background-color: #ffffff;
+    height: 100px;
+    opacity: .9;
+    margin-bottom: 10px;
+    /*display: block;*/
+    padding: 10px;
+    min-width: 100%;
+  }
+
+  .header_image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -6%;
+    width: 10%;
+  }
+ /*-------------------------*/ 
+  .dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    float: left;
+    margin: auto;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    min-height: 20px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+    /*---------------------------------*/
+  header h1.logo {
+    margin: 0;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    float: left;
+  }
+  
+  header h1.logo:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /*
+   * Center the body content
+   */
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  div.home {
+    padding: 0.4%;
+    background-color: #ffffff;
+    /*-webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;*/
+  }
+
+  .top{
+    background-color: #ce1f36;
+    margin: 5px;
+    padding: 20px;
+    color: #ffffff;
+  }
+  
+  div.about {
+    /*padding: 10px 0 30px 0;*/
+    background-color: #E6E6FA;
+   /* -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;*/
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 3em;
+    margin-top: 40px;
+    text-align: center;
+    letter-spacing: -2px;
+  }
+  
+  h3 {
+    font-size: 1.7em;
+    font-weight: 100;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #999;
+  }
+  
+  
