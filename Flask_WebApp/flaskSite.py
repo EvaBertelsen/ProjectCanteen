@@ -11,20 +11,25 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return render_template("home.html")
+def mainpage():
+    return render_template("mainpage.html")
 
-@app.route('/about/')
-def about():
-    return render_template("about.html")
+@app.route('/Beverages & Desserts')
+def Beverages & Desserts():
+    return render_template("other.html")
 
 
-@app.route('/hack/')
-def hack():
-    return render_template("hack.html")
+@app.route('/Orders/')
+def orders():
+    return render_template("orders.html")
+
+@app.route('/My Account/')
+def myaccount():
+    return render_template("myaccount.html")
 
 
 if __name__ == "__main__":
     app.run(debug=True)
 
 
+# Eva added pages
