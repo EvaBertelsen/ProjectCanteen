@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+    <title>Canten</title>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    </head>
+    <body>
+        <header>
+            <div class="dropdown">
+                <button class="dropbtn"> <img src="/static/images/menu.PNG"> </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </div>
+            <img class="header_image" src="/static/images/logo.PNG">
+
+            {% if current_user.is_authenticated %}
+                <p>{{ current_user.username }}</p>
+            {% endif %}
+
+            <div class="loginbtn"><a href="{{ url_for('logout') }}" target="_blank">ADMIN</a></div>
+        </header>
+
+        <div class="container">
+            <div class="home">
+                <div class="top">
+                    <h1>TODAYS MENU</h1>
+                </div>
+
+
+            	<form action="." method="POST">
+                    <div class="form-group">
+                        <label for="name"></label>Name:</label>
+                        <input class="input is-large" type="text" name="name" placeholder="name" autofocus="">
+                     </div>
+                    <div class="form-group">
+                        <label for="alergens">Alergens:</label>
+                        <input class="input is-large" type="text" name="alergens" placeholder="alergens" autofocus="">
+                     </div>
+                     <div class="form-group">
+                        <label for="text">Text:</label>
+                        <input type="input is-large" class="form-control" id="text" name="text" placeholder="Enter your text">
+                     </div>
+                     <div class="form-group">
+                        <label for="text">Price:</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Enter your text">
+                     </div>
+                    <div class="form-group">
+                        <label for="text">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date"  value="2020-01-01">
+                     </div>
+                    {% if error %}
+                    <div class="alert alert-warning" role="alert">
+                        Incorrect username or password
+                    </div>
+                    {% endif %}
+        				<button type="submit" class="btn btn-success" value="Login">Add</button>
+            	</form>
+
+                <p>An html file with a few simple html tags</p>
+            </div>
+        </div>
+    </body>
+</html>
