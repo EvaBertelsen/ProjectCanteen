@@ -1,9 +1,60 @@
-{%extends "layout.html"%}
-{%block content%}
-<div class="home">
-    <div class="top">
-        <h1>TODAYS MENU</h1>
-    </div>
-    <p>An html file with a few simple html tags</p>
-</div>
-{%endblock%}
+<!DOCTYPE html>
+<html>
+    <title>Canten</title>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    </head>
+    <body>
+
+        <header>
+            <div class="dropdown">
+                <button class="dropbtn"> <img src="/static/images/menu.PNG"> </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </div>
+            <img class="header_image" src="/static/images/logo.PNG">
+            <div class="loginbtn"><a href="{{ url_for('login') }}" target="_blank">LOGIN</a></div>
+        </header>
+
+        <div class="container">
+            <div class="home">
+                <div class="top">
+                    <h1>TODAYS MENU</h1>
+                </div>
+
+                {% for Menu in menu %}
+                    {% if today == Menu.date %}
+                       <div class="item">
+                            <h2>{{ Menu.name }}</h2>
+                            <h3 style="float: right; margin: 2%;">Price: {{ Menu.price }}</h3>
+                            <h3>alergens: {{ Menu.alergens }}</h3>
+                            <p>{{ Menu.text }}</p>
+                        <hr>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+             <div class="home">
+                <div class="top">
+                    <h1>YESTERDAYS MENU</h1>
+                </div>
+
+                {% for Menu in menu %}
+                    {% if yesterday == Menu.date %}
+                       <div class="item">
+                            <h2>{{ Menu.name }}</h2>
+                            <h3 style="float: right; margin: 2%;">Price: {{ Menu.price // 2}}</h3>
+                            <!--<img class="item_img" src="/static/images/plus.png">-->
+                            <h3>alergens: {{ Menu.alergens }}</h3>
+                            <p>{{ Menu.text }}</p>
+                        <hr>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
