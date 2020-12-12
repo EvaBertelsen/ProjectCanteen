@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <title>Canten</title>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    </head>
+    <body>
+        <header>
+            <div class="dropdown">
+                <button class="dropbtn"> <img src="/static/images/menu.PNG"> </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </div>
+            <img class="header_image" src="/static/images/logo.PNG">
+
+            {% if current_user.is_authenticated %}
+                <p>{{ current_user.username }}</p>
+            {% endif %}
+
+            <div class="loginbtn"><a href="{{ url_for('logout') }}" target="_blank">LOGOUT</a></div>
+            <h2>{{ dataPrice }}</h2>
+        </header>
+
+        <div class="container">
+            <div class="home">
+                <div class="top">
+                    <h1>TODAYS MENU</h1>
+                </div>
+
+                     {% for Menu in menu %}
+                        {% if today == Menu.date %}
+                            <div class="item">
+                                <h2>{{ Menu.name }}</h2>
+                                <h3 style="float: right; margin: 2%;">Price: {{ Menu.price}}</h3>
+                                <h3>alergens: {{ Menu.alergens }}</h3>
+                                <p>{{ Menu.text }}</p>
+                                <hr>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+
+             <div class="home">
+                <div class="top">
+                    <h1>YESTERDAYS MENU</h1>
+                </div>
+
+                {% for Menu in menu %}
+                    {% if yesterday == Menu.date %}
+                        <form action="." method="POST">
+                            <div class="item">
+                                <h2>{{ Menu.name }}</h2>
+                                <h3 style="float: right; margin: 2%;">Price: {{ Menu.price // 2 }}</h3>
+                                <h3>alergens: {{ Menu.alergens }}</h3>
+                                <p>{{ Menu.text }}</p>
+                                <hr>
+                            </div>
+                        </form>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
